@@ -16,6 +16,10 @@ estimates predicted by the Kalman Smoother.
 import numpy as np
 import pylab as pl
 
+import sys
+sys.path.insert(0, '/media/win-d/myfiles/2019/coursera_state_estimation/alien_software/pykalman/')
+
+
 from pykalman import KalmanFilter
 
 rnd = np.random.RandomState(0)
@@ -35,6 +39,10 @@ kf = KalmanFilter(transition_matrices=np.array([[1, 1], [0, 1]]),
 # may not be as good as if you fit first.
 states_pred = kf.em(observations).smooth(observations)[0]
 print('fitted model: {0}'.format(kf))
+
+
+import ipdb; ipdb.set_trace()
+
 
 # Plot lines for the observations without noise, the estimated position of the
 # target before fitting, and the estimated position after fitting.
